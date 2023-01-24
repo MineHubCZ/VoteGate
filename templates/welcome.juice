@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="cs">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>VoteGate | MineHub.cz</title>
+
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="app.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;600&display=swap">
+</head>
+<body>
+    <div id="app">
+        <header class="w-100 min-vh-100 text-center d-flex justify-content-center align-items-center">
+            <div class="container px-5">
+                <h1>VoteGate</h1>
+                <p>API mikroaplikace zprostředkující údaje o hlasování.</p>
+                <a href="#" class="btn btn-primary rounded-pill mx-2 mt-4">
+                    Projekt na GitHubu
+                </a>
+            </div>
+        </header>
+    </div>
+</body>
+</html>

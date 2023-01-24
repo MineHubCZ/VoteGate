@@ -1,0 +1,28 @@
+header {
+    color: #fff;
+    background: -webkit-linear-gradient(40deg, #799F0C, #ACBB78);
+    background: linear-gradient(40deg, #799F0C, #ACBB78);
+    font-family: 'Work Sans', sans-serif;
+}
+
+header h1 {
+    font-size: 4rem;
+    font-weight: 600;
+}
+
+header p {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 0;
+}
+
+footer {
+    position: absolute;
+    bottom: 0.25rem;
+    right: 0.5rem;
+    font-size: 0.75rem;
+}
+
+footer a {
+    color: #ffffff80
+}
