@@ -1,3 +1,7 @@
+body {
+    font-family: 'Inter', sans-serif;
+}
+
 header {
     color: #fff;
     background: -webkit-linear-gradient(40deg, #799F0C, #ACBB78);
@@ -25,4 +29,14 @@ footer {
 
 footer a {
     color: #ffffff80
+}
+
+.code-block {
+    width: 100%;
+    display: block;
+    padding: 0.25rem 0.5rem;
+    color: #799F0C;
+    background-color: #212529;
+    border-radius: 0.25rem;
+    margin-bottom: 0.75rem;
 }

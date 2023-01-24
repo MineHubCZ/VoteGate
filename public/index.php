@@ -1,16 +1,21 @@
 <?php
 
 use App\Http\Middlewares\TokenAuth;
-use Lemon\Kernel\Application;
-use Lemon\Route;
 use App\Integrations\CzechCraft;
 use App\Integrations\CraftList;
 use App\Integrations\MinecraftList;
 use App\Integrations\MinecraftServery;
+use Lemon\Kernel\Application;
+use Lemon\Route;
+use Lemon\Http\Request;
+use Lemon\Templating\Juice\Syntax;
 
 include __DIR__.'/../vendor/autoload.php';
 
 Application::init(__DIR__);
+
+config('debug.debug', env('DEBUG_MODE') == 'true');
+config('templating.juice.syntax', Syntax::blade());
 
 $services = [
     'CZECH_CRAFT' => new CzechCraft(),
@@ -20,9 +25,10 @@ $services = [
 ];
 
 /**
- * Welcome landing page
+ * Welcome landing page, usage documentation
  */
 Route::get('/', fn() => template('welcome'));
+Route::get('/usage', fn() => template('usage', base_url: env('BASE_URL')));
 
 /**
  * Server info endpoint

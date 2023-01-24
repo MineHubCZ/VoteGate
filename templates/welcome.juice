@@ -17,7 +17,10 @@
             <div class="container px-5">
                 <h1>VoteGate</h1>
                 <p>API mikroaplikace zprostředkující údaje o hlasování.</p>
-                <a href="#" class="btn btn-primary rounded-pill mx-2 mt-4">
+                <a href="/usage" class="btn btn-primary rounded-pill mx-2 mt-4">
+                    Dokumentace
+                </a>
+                <a href="https://github.com/MineHubCZ/VoteGate" class="btn btn-primary rounded-pill mx-2 mt-4">
                     Projekt na GitHubu
                 </a>
             </div>

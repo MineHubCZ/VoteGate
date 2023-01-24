@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="cs">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>VoteGate | MineHub.cz</title>
+
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="app.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Interdisplay=swap">
+</head>
+<body>
+    <div id="app">
+        <main class="container py-5">
+            <h1>Dokumentace použití API VoteGate</h1>
+
+            <p>
+                Každý požadavek na API musí být autorizován tokenem nastaveným v <code>.env</code> souboru.
+                Token se předává jako GET parametr pod klíčem <code>token</code>.
+            </p>
+
+            <hr>
+
+            <h2 class="mb-4">Endpointy</h2>
+
+            <h3>Informace o serveru</h3>
+            <p>
+                <span class="badge bg-secondary">
+                    GET
+                </span>
+                <code>{{ $base_url }}/api</code>
+            </p>
+
+            <p>
+                Vrací objekt, kde klíč je název <a href="#services">hlasovací služby</a> a hodnota je
+                <a href="#serverinfo">objekt ServerInfo</a> nebo <code>null</code> v případě selhání načtení dat.
+            </p>
+
+            <h5>Příklad</h5>
+            <code class="code-block">
+                {{ $base_url }}/api
+            </code>
+
+            <pre class="code-block mb-5">
+{
+    "CZECH_CRAFT": {
+        "position": 19,
+        "votes_count": 1490,
+        "url": "https://czech-craft.eu/server/minehub"
+    },
+    "CRAFTLIST": {
+        "position": 32,
+        "votes_count": 997,
+        "url": "https://craftlist.org/minehubcz"
+    },
+    "MINECRAFT_LIST": {
+        "position": 16,
+        "votes_count": 3608,
+        "url": "https://www.minecraft-list.cz/server/minehubcz"
+    },
+    "MINECRAFTSERVERY": {
+        "position": null,
+        "votes_count": 1026,
+        "url": "https://minecraftservery.eu/server/minehubcz"
+    }
+}</pre>
+
+            <h3>Informace o hráči</h3>
+            <p>
+                <span class="badge bg-secondary">
+                    GET
+                </span>
+                <code>{{ $base_url }}/api/{nick}</code>
+            </p>
+
+            <p>
+                Vrací objekt, kde klíč je název <a href="#services">hlasovací služby</a> a hodnota je
+                <a href="#playerinfo">objekt PlayerInfo</a> nebo <code>null</code> v případě selhání načtení dat.
+            </p>
+
+            <h5>Příklad</h5>
+            <code class="code-block">
+                {{ $base_url }}/api/CoolFido
+            </code>
+
+<pre class="code-block">
+{
+    "CZECH_CRAFT": {
+        "nick": "CoolFido",
+        "votes_count": 2,
+        "next_vote": 1674570505,
+        "vote_url": "https://czech-craft.eu/server/minehub/vote?user=CoolFido"
+    },
+    "CRAFTLIST": null,
+    "MINECRAFT_LIST": {
+        "nick": "CoolFido",
+        "votes_count": 1,
+        "next_vote": 1674571538,
+        "vote_url": "https://www.minecraft-list.cz/server/minehubcz/vote?name=CoolFido"
+    },
+    "MINECRAFTSERVERY": {
+        "nick": "CoolFido",
+        "votes_count": 1,
+        "next_vote": 1674572924,
+        "vote_url": "https://minecraftservery.eu/server/minehubcz/vote/CoolFido"
+    }
+}</pre>
+
+            <hr>
+
+            <h2 class="mb-4">Data</h2>
+
+            <h3 id="services">Služby</h3>
+            <table class="table table-secondary">
+                <tr>
+                    <th>Název</th>
+                    <th>Třída</th>
+                    <th>URL</th>
+                </tr>
+                <tr>
+                    <td>CZECH_CRAFT</td>
+                    <td>CzechCraft.php</td>
+                    <td>
+                        <a href="https://czech-craft.eu">https://czech-craft.eu</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>CRAFTLIST</td>
+                    <td>CraftList.php</td>
+                    <td>
+                        <a href="https://craftlist.org">https://craftlist.org</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>MINECRAFT_LIST</td>
+                    <td>MinecraftList.php</td>
+                    <td>
+                        <a href="https://www.minecraft-list.cz">https://www.minecraft-list.cz</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>MINECRAFTSERVERY</td>
+                    <td>MinecraftServery.php</td>
+                    <td>
+                        <a href="https://minecraftservery.eu">https://minecraftservery.eu</a>
+                    </td>
+                </tr>
+            </table>
+
+
+            <h3 id="serverinfo">
+                Objekt ServerInfo
+            </h3>
+
+            <table class="table table-secondary">
+                <tr>
+                    <th>Název vlastnosti</th>
+                    <th>Datový typ</th>
+                    <th>Význam</th>
+                </tr>
+                <tr>
+                    <td>position</td>
+                    <td>int | null</td>
+                    <td>Pořadí serveru v žebříčku</td>
+                </tr>
+                <tr>
+                    <td>votes_count</td>
+                    <td>int</td>
+                    <td>Celkový počet hlasů serveru</td>
+                </tr>
+                <tr>
+                    <td>url</td>
+                    <td>string</td>
+                    <td>Odkaz na stránku serveru</td>
+                </tr>
+            </table>
+
+            <h3 id="playerinfo">
+                Objekt PlayerInfo
+            </h3>
+
+            <table class="table table-secondary">
+                <tr>
+                    <th>Název vlastnosti</th>
+                    <th>Datový typ</th>
+                    <th>Význam</th>
+                </tr>
+                <tr>
+                    <td>nick</td>
+                    <td>string</td>
+                    <td>Nick hráče</td>
+                </tr>
+                <tr>
+                    <td>votes_count</td>
+                    <td>int</td>
+                    <td>Počet hlasů daného hráče</td>
+                </tr>
+                <tr>
+                    <td>next_vote</td>
+                    <td>int</td>
+                    <td>Timestamp času, od kdy hráč smí nejdřívě hlasovat</td>
+                </tr>
+                <tr>
+                    <td>vote_url</td>
+                    <td>string</td>
+                    <td>Hlasovací odkaz hráče</td>
+                </tr>
+            </table>
+        </main>
+    </div>
+</body>
+</html>
