@@ -2,12 +2,12 @@
 
 namespace App\Data;
 
-class PlayerInfo extends Data
+class PlayerInfo
 {
     public function __construct(
-        public string $nick,
-        public int $votes_count,
-        public int $next_vote,
-        public string $vote_url,
+        public readonly string $nick,
+        public readonly int $votes_count,
+        public readonly int $next_vote,
+        public readonly string $vote_url,
     ) {}
 }
