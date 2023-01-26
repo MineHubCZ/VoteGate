@@ -2,11 +2,11 @@
 
 namespace App\Data;
 
-class ServerInfo extends Data
+class ServerInfo
 {
     public function __construct(
-        public ?int $position,
-        public int $votes_count,
-        public string $url,
+        public readonly ?int $position,
+        public readonly int $votes_count,
+        public readonly string $url,
     ) {}
 }
