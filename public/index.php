@@ -22,7 +22,6 @@ $app->add(Services::class);
 Route::template('/', 'welcome');
 Route::get('/usage', fn() => template('usage', base_url: env('BASE_URL')));
 
-
 /**
  * Server info endpoint
  */
