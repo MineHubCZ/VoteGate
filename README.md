@@ -14,14 +14,14 @@ $ make
 
 Následně je potřeba vyplnit soubor `.env` kde
 
-| Klíč                  | Popis                      |
-|-----------------------|----------------------------|
-| TOKEN                 | api token pro autorizaci   |
-| DEBUG_MODE            | vypne/zapne debug mode     |
-| BASE_URL              | url adresa webu            |
-| CZECH_CRAFT_SLUG      | slug pro CzechCraft        |
-| CRAFTLIST_SLUG        | slug pro CraftList         |
-| CRAFTLIST_API_TOKEN   | api token pro CraftList    |
-| MINECRAFT_LIST_SLUG   | slug pro Minecraft List    |
-| MINECRAFTSERVERY_SLUG | slug pro Minecraft Servery |
-| MINECRAFTSERVERY_ID   | id pro Minecraft Servery   |
+| Klíč                  | Popis                           |
+|-----------------------|---------------------------------|
+| TOKEN                 | Api token pro autorizaci        |
+| DEBUG_MODE            | Vypne/zapne debug mode          |
+| BASE_URL              | URL, kde bude aplikace dostupná |
+| CZECH_CRAFT_SLUG      | Slug pro CzechCraft             |
+| CRAFTLIST_SLUG        | Slug pro CraftList              |
+| CRAFTLIST_API_TOKEN   | Api token pro CraftList         |
+| MINECRAFT_LIST_SLUG   | Slug pro Minecraft List         |
+| MINECRAFTSERVERY_SLUG | Slug pro Minecraft Servery      |
+| MINECRAFTSERVERY_ID   | Id pro Minecraft Servery        |
