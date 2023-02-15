@@ -38,7 +38,8 @@ class MinecraftServery extends Integration
                 $nick,
                 0,
                 time(),
-                'https://minecraftservery.eu/server/' . env('MINECRAFTSERVERY_SLUG'),
+                'https://minecraftservery.eu/server/' . env('MINECRAFTSERVERY_SLUG') .
+                '/vote/' . $nick,
             );
         }
 
