@@ -37,8 +37,8 @@ class CraftList extends Integration
 
         return new PlayerInfo(
             $nick,
-            $data->votes,
-            strtotime($data->nextPossibleVote),
+            $data[0]->votes,
+            strtotime($data[0]->nextPossibleVote),
             'https://craftlist.org/' . env('CRAFTLIST_SLUG') . '?nickname=' . $nick,
         );
     }
