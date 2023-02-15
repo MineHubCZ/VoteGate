@@ -28,7 +28,7 @@ abstract class Integration
     abstract public function getServerInfo(): ?ServerInfo;
     abstract public function getPlayerInfo(string $nick): ?PlayerInfo;
 
-    protected function request(string $uri): ?object {
+    protected function request(string $uri): object|array|null {
         try {
             $response = $this
                 ->client
