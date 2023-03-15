@@ -4,8 +4,8 @@ namespace App\Integrations;
 
 use App\Data\PlayerInfo;
 use App\Data\ServerInfo;
+use Exception;
 use GuzzleHttp\Client;
-use GuzzleHttp\Exception\ClientException;
 
 abstract class Integration
 {
@@ -33,7 +33,7 @@ abstract class Integration
             $response = $this
                 ->client
                 ->get($uri);
-        } catch (ClientException $e) {
+        } catch (Exception $e) {
             return null;
         }
 
