@@ -20,6 +20,9 @@ abstract class Integration
         $this->client = new Client([
             'base_uri' => $this->base_uri,
             'timeout' => 5,
+            'headers' => [
+                'User-Agent' => 'GuzzleHttp/'.Client::MAJOR_VERSION.' MineHubCZ/VoteGate running at '.env('BASE_URL'),
+            ],
         ]);
 
         $this->identifier = env($this->identifier_env_path);
