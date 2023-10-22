@@ -2,8 +2,12 @@
 
 namespace App\Data;
 
+use App\Traits\ConstructsFromArray;
+
 class PlayerInfo
 {
+    use ConstructsFromArray;
+
     public function __construct(
         public readonly string $nick,
         public readonly int $votes_count,

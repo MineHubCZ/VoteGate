@@ -4,14 +4,13 @@ namespace App\Integrations;
 
 use App\Data\PlayerInfo;
 use App\Data\ServerInfo;
-use Exception;
 
 class CraftList extends Integration
 {
     protected string $base_uri = 'https://api.craftlist.org/v1/';
     protected string $identifier_env_path = 'CRAFTLIST_API_TOKEN';
 
-    public function getServerInfo(): ?ServerInfo {
+    public function fetchServerInfo(): ?ServerInfo {
         $data = $this->request(
             $this->identifier . '/info'
         );
@@ -26,7 +25,7 @@ class CraftList extends Integration
         );
     }
 
-    public function getPlayerInfo(string $nick): ?PlayerInfo {
+    public function fetchPlayerInfo(string $nick): ?PlayerInfo {
         $data = $this->request(
             $this->identifier . '/votes/' . date('Y') . '/'.
             date('m') . '?merge=1&nickname=' . $nick

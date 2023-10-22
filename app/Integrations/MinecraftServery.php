@@ -10,7 +10,7 @@ class MinecraftServery extends Integration
     protected string $base_uri = 'https://api.minecraftservery.eu/';
     protected string $identifier_env_path = 'MINECRAFTSERVERY_ID';
 
-    public function getServerInfo(): ?ServerInfo {
+    public function fetchServerInfo(): ?ServerInfo {
         $data = $this->request(
             'info?id=' . $this->identifier
         );
@@ -25,7 +25,7 @@ class MinecraftServery extends Integration
         );
     }
 
-    public function getPlayerInfo(string $nick): ?PlayerInfo {
+    public function fetchPlayerInfo(string $nick): ?PlayerInfo {
         $data = $this->request(
             'player?id=' . $this->identifier . '&nickname=' . $nick
         );

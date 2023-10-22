@@ -10,7 +10,7 @@ class MinecraftList extends Integration
     protected string $base_uri = 'https://www.minecraft-list.cz/api/';
     protected string $identifier_env_path = 'MINECRAFT_LIST_SLUG';
 
-    public function getServerInfo(): ?ServerInfo {
+    public function fetchServerInfo(): ?ServerInfo {
         $data = $this->request(
             'server/' . $this->identifier
         );
@@ -25,7 +25,7 @@ class MinecraftList extends Integration
         );
     }
 
-    public function getPlayerInfo(string $nick): ?PlayerInfo {
+    public function fetchPlayerInfo(string $nick): ?PlayerInfo {
         $data = $this->request(
             'server/' . $this->identifier . '/player/' . $nick
         );
